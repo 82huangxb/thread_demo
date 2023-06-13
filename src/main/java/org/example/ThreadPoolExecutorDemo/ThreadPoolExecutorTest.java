@@ -12,5 +12,8 @@ public class ThreadPoolExecutorTest {
 
         ThreadPoolExecutor threadPoolExecutor1 = new ThreadPoolExecutor(2, 2, 0L, TimeUnit.SECONDS, new SynchronousQueue<Runnable>(),new ThreadPoolExecutor.DiscardOldestPolicy());
         ExecutorService threadPoolExecutor = Executors.newFixedThreadPool(2);
+        threadPoolExecutor1.submit(()->{
+            System.out.println("我是一个异步线程");
+        });
     }
 }
