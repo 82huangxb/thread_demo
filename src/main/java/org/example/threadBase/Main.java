@@ -20,13 +20,14 @@ public class Main {
             System.out.println(Thread1.currentThread().getName()+"主线程运行开始!");
             ThreadRunnable mTh1=new ThreadRunnable("R");
             Thread threadR = new Thread(mTh1);
-            Thread thread = new Thread1("T");
-            thread.start();
+            Thread threadT = new Thread1("T");
+            //设置线程优先级
+            threadR.setPriority(Thread.MAX_PRIORITY);
+            //线程进入运行状态
+            threadT.start();
             threadR.start();
-            threadR.setPriority(10);
-            //子线程让步，主线程必须等待子线程调用完成才能调用
-            //threadR.join();
-            //thread.join();
+            //threadR.join();  //子线程让步，主线程必须等待子线程调用完成才能调用（使线程进入阻塞状态）
+            //threadT.join();   //子线程让步，主线程必须等待子线程调用完成才能调用（使线程进入阻塞状态）
             System.out.println(Thread1.currentThread().getName()+ "主线程运行结束!");
     }
 }

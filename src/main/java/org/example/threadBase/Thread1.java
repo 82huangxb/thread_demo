@@ -6,8 +6,6 @@ package org.example.threadBase;
  * @apiNote
  */
 
-import static java.lang.Thread.sleep;
-
 /**
  *@functon 多线程学习,join
  *@author 林炳文
@@ -26,8 +24,13 @@ public class Thread1 extends Thread {
             System.out.println("子线程"+name + "运行 : " + i);
             //当i=3的时候，线程让步
             if(i==3){
+                /**
+                 * 暂停当前正在执行的线程对象，把执行机会让给相同或者更高优先级的线程。（也可能分给自己）
+                 * 调用了yield()方法只是该线程回到了可运行状态等待cpu调度选中执行，而不是回到阻塞状态
+                 */
                 yield();
             }
+
             try {
                 sleep((int) (Math.random() * 10));
             } catch (InterruptedException e) {

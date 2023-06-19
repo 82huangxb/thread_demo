@@ -24,6 +24,7 @@ public class ThreadRunnable implements Runnable{
         for (int i = 0; i < 5; i++) {
             System.out.println("子线程"+name + "运行 : " + i);
             try {
+                //使线程转为阻塞状态
                 sleep((int) (Math.random() * 10));
                 //sleep(500);
             } catch (InterruptedException e) {
